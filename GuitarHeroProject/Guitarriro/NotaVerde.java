@@ -15,5 +15,8 @@ public class NotaVerde extends Actor
     public void act() 
     {
         setLocation(getX(),getY()+1);
+          if(this.getY() == 381){
+              getWorld().removeObject(this);
+          }
     }    
 }
