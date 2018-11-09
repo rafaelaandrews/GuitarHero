@@ -15,6 +15,8 @@ public class MyWorld extends greenfoot.World
      */
     //private Guitarra guitarra;
     private NotaVerde notaVerde;
+    private NotaAmarela notaAmarela;
+    private NotaVermelha notaVermelha;
     private BotaoVerde botaoVerde;
     private BotaoAmarelo botaoAmarelo;
     private BotaoVermelho botaoVermelho;
@@ -33,10 +35,14 @@ public class MyWorld extends greenfoot.World
         //guitarra = new Guitarra();
         //addObject(guitarra,getWidth()/2,getHeight()/2);
         notaVerde = new NotaVerde();
+        notaVermelha = new NotaVermelha();
+        notaAmarela = new NotaAmarela();
         botaoVerde = new BotaoVerde();
         botaoAmarelo = new BotaoAmarelo();
         botaoVermelho = new BotaoVermelho();
         addObject(notaVerde, 250, 10);
+        addObject(notaAmarela, 300, 10);
+        addObject(notaVermelha, 350, 10);
         addObject(botaoVerde, 250, 380);
         addObject(botaoAmarelo, 300, 380);
         addObject(botaoVermelho, 350, 380);
