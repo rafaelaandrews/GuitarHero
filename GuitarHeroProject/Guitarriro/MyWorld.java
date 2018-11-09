@@ -22,12 +22,14 @@ public class MyWorld extends greenfoot.World
     private BotaoAmarelo botaoAmarelo;
     private BotaoVermelho botaoVermelho;
     private BotaoAzul botaoAzul;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         preparePlaying();
     }
+    
         private void preparePlaying()
     {
         // Clear the world
@@ -44,14 +46,14 @@ public class MyWorld extends greenfoot.World
         botaoAmarelo = new BotaoAmarelo();
         botaoVermelho = new BotaoVermelho();
         botaoAzul = new BotaoAzul();
-        addObject(notaVerde, 250, 10);
-        addObject(notaAmarela, 300, 10);
-        addObject(notaVermelha, 350, 10);
-        addObject(notaAzul, 400, 10);
-        addObject(botaoVerde, 250, 380);
-        addObject(botaoAmarelo, 300, 380);
-        addObject(botaoVermelho, 350, 380);
-        addObject(botaoAzul, 400, 380);
+        addObject(notaVerde, 200, 10);
+        addObject(notaAmarela, 250, 10);
+        addObject(notaVermelha, 300, 10);
+        addObject(notaAzul, 350, 10);
+        addObject(botaoVerde, 200, 380);
+        addObject(botaoAmarelo, 250, 380);
+        addObject(botaoVermelho, 300, 380);
+        addObject(botaoAzul, 350, 380);
         // Set the game state
     }
 }
