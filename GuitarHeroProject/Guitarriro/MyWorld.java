@@ -17,9 +17,11 @@ public class MyWorld extends greenfoot.World
     private NotaVerde notaVerde;
     private NotaAmarela notaAmarela;
     private NotaVermelha notaVermelha;
+    private NotaAzul notaAzul;
     private BotaoVerde botaoVerde;
     private BotaoAmarelo botaoAmarelo;
     private BotaoVermelho botaoVermelho;
+    private BotaoAzul botaoAzul;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -37,16 +39,19 @@ public class MyWorld extends greenfoot.World
         notaVerde = new NotaVerde();
         notaVermelha = new NotaVermelha();
         notaAmarela = new NotaAmarela();
+        notaAzul = new NotaAzul();
         botaoVerde = new BotaoVerde();
         botaoAmarelo = new BotaoAmarelo();
         botaoVermelho = new BotaoVermelho();
+        botaoAzul = new BotaoAzul();
         addObject(notaVerde, 250, 10);
         addObject(notaAmarela, 300, 10);
         addObject(notaVermelha, 350, 10);
+        addObject(notaAzul, 400, 10);
         addObject(botaoVerde, 250, 380);
         addObject(botaoAmarelo, 300, 380);
         addObject(botaoVermelho, 350, 380);
-
+        addObject(botaoAzul, 400, 380);
         // Set the game state
     }
 }
