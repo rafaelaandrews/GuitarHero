@@ -13,12 +13,14 @@ public class MyWorld extends greenfoot.World
      * Constructor for objects of class MyWorld.
      * 
      */
-    //10% de chance
-    private int noteSpawnRatio = 5;
+    //5% de chance
+    private int noteSpawnRatio = 10;
+    
+    private int timer = 12960;
     
     //limite e quantidade
     private int noteSpawnCount = 0;
-    private int noteSpawnLimit = 4;
+    private int noteSpawnLimit = 5;
     
     private Score score;
     //private Guitarra guitarra;
@@ -30,21 +32,61 @@ public class MyWorld extends greenfoot.World
     private BotaoAmarelo botaoAmarelo;
     private BotaoVermelho botaoVermelho;
     private BotaoAzul botaoAzul;
+    private BotaoMenu botaoMenu;
+    
+    GreenfootSound musica = new GreenfootSound("bytheway.mp3");
     
     //Game State
     private enum GameState{MENU,PLAYING,GAMEOVER};    
     private GameState state;
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        preparePlaying();
+        prepareMenu();
+        //if(state == GameState.PLAYING){
+            
+        //}
     }
     
     public void act(){
-        actPlaying();
+        switch(state)
+        {
+            case MENU:
+            {
+                actMenu();
+                break;
+            }            
+            case PLAYING:
+            {    
+                musica.play();
+                actPlaying();
+
+                //musica.stop();
+                break;
+            }            
+            //case GAMEOVER:
+            //{
+                //actGameOver();
+                //break;
+            //}
+        }
     }
     
+    private void prepareMenu()
+    {
+        // Clear the world
+        removeObjects(getObjects(Actor.class));
+                
+        // Create the menu
+        botaoMenu = new BotaoMenu();   
+        addObject(botaoMenu, getWidth()/2, getHeight()/2);     
+        
+        // Set the game state
+        state = GameState.MENU;
+    }
+
         private void preparePlaying()
     {
         // Clear the world
@@ -66,6 +108,25 @@ public class MyWorld extends greenfoot.World
         // Set the game state
         state = GameState.PLAYING;
     }
+    
+    private void prepareGameOver()
+    {
+        // Clear the world
+        removeObjects(getObjects(Actor.class)); 
+      
+        // Add gameover screen
+        //gameOver = new GameOver();
+        //addObject(gameOver,getWidth()/2,getHeight()/2);
+        
+        // Add the final score
+        //int finalscore = score.getScore();
+        //finalScore = new FinalScore(fscore);
+        //addObject(finalScore,getWidth()-75,60);
+                                
+        // Set the game state
+        state = GameState.GAMEOVER;           
+    }
+    
     public void actPlaying(){
         int aleatorio = Greenfoot.getRandomNumber(4);
         int aleatorio2 = Greenfoot.getRandomNumber(100);
@@ -73,7 +134,7 @@ public class MyWorld extends greenfoot.World
         notaVermelha = new NotaVermelha();
         notaAmarela = new NotaAmarela();
         notaAzul = new NotaAzul();
-        if(state != GameState.GAMEOVER){
+        if(timer > 0){
             if (noteSpawnCount == 0){
                 if(aleatorio2 < noteSpawnRatio){
                     if(aleatorio == 0){
@@ -88,15 +149,38 @@ public class MyWorld extends greenfoot.World
                     else if(aleatorio == 3){
                         addObject(notaAzul, 350, 10);
                     }
+                    
                 }
             }
             if (noteSpawnCount++ == noteSpawnLimit)
             {
                 noteSpawnCount=0;
-            }  
+            } 
+            timer--;
+            if(timer == 0){
+                prepareGameOver();
+            }
         }
 
     }
+
+    public void actMenu()
+    {
+        if(Greenfoot.mouseClicked(botaoMenu))
+        {
+            preparePlaying();
+        }
+    }
+    
+    public void actGameOver()
+    {
+        //if(Greenfoot.mouseClicked(gameOver) ||
+          // Greenfoot.mouseClicked(finalScore))
+        //{
+          //  prepareMenu();
+        //}
+    }
+
     public void noteRight(){
         score.addScore(100);
     }
