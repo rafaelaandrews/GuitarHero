@@ -14,12 +14,13 @@ public class MyWorld extends greenfoot.World
      * 
      */
     //10% de chance
-    private int noteSpawnRatio = 6;
+    private int noteSpawnRatio = 5;
     
     //limite e quantidade
     private int noteSpawnCount = 0;
     private int noteSpawnLimit = 4;
     
+    private Score score;
     //private Guitarra guitarra;
     private NotaVerde notaVerde;
     private NotaAmarela notaAmarela;
@@ -48,14 +49,16 @@ public class MyWorld extends greenfoot.World
     {
         // Clear the world
         removeObjects(getObjects(Actor.class));
-                
+        
         // Create the menu
         //guitarra = new Guitarra();
         //addObject(guitarra,getWidth()/2,getHeight()/2);
+        score = new Score();
         botaoVerde = new BotaoVerde();
         botaoAmarelo = new BotaoAmarelo();
         botaoVermelho = new BotaoVermelho();
         botaoAzul = new BotaoAzul();
+        addObject(score, 57, 15);
         addObject(botaoVerde, 200, 380);
         addObject(botaoAmarelo, 250, 380);
         addObject(botaoVermelho, 300, 380);
@@ -93,5 +96,13 @@ public class MyWorld extends greenfoot.World
             }  
         }
 
+    }
+    public void noteRight(){
+        score.addScore(100);
+    }
+    public void noteWrong(){
+        if(score.getScore() >= 10){
+            score.removePoints(10);
+        }
     }
 }

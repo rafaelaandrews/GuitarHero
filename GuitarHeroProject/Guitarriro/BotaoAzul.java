@@ -42,6 +42,8 @@ public class BotaoAzul extends Actor
             	// TODO - Refatorar comportamentos como este em subrotinas
             	Actor notaAzul = getOneIntersectingObject(NotaAzul.class);
 	            if (notaAzul!=null){
+                    MyWorld world = (MyWorld)getWorld();
+                    world.noteRight();
 	                getWorld().removeObject(notaAzul);
 	            }
             }    

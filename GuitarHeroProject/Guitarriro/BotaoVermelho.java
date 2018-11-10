@@ -42,6 +42,8 @@ public class BotaoVermelho extends Actor
             	// TODO - Refatorar comportamentos como este em subrotinas
             	Actor notaVermelha = getOneIntersectingObject(NotaVermelha.class);
 	            if (notaVermelha!=null){
+                    MyWorld world = (MyWorld)getWorld();
+                    world.noteRight();
 	                getWorld().removeObject(notaVermelha);
 	            }
             }    

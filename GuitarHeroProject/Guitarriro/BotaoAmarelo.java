@@ -16,6 +16,7 @@ public class BotaoAmarelo extends Actor
     private int activeRatio = 0;
     private int activeLimit = 20;
     private int pressRatio = 0;
+    Score score = new Score();
     
     public void act() 
     {
@@ -42,6 +43,8 @@ public class BotaoAmarelo extends Actor
             	// TODO - Refatorar comportamentos como este em subrotinas
             	Actor notaAmarela = getOneIntersectingObject(NotaAmarela.class);
 	            if (notaAmarela!=null){
+	                MyWorld world = (MyWorld)getWorld();
+	                world.noteRight();
 	                getWorld().removeObject(notaAmarela);
 	            }
             }    
