@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class BotaoAzul here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class BotaoAzul extends Actor
 {
     boolean pressed = false;
@@ -36,6 +30,7 @@ public class BotaoAzul extends Actor
             {
             	active = false;
             	this.setImage(looseImage);
+                activeRatio = 0;
             }
             else
             {

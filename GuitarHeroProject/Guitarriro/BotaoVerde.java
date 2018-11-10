@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class BotaoVerde here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class BotaoVerde extends Actor
 {
     boolean pressed = false;
@@ -36,6 +30,7 @@ public class BotaoVerde extends Actor
             {
             	active = false;
             	this.setImage(looseImage);
+            	activeRatio = 0;
             }
             else
             {
@@ -50,8 +45,7 @@ public class BotaoVerde extends Actor
         }
         // (3) Botão expirado e usuário continua pressionando
         else if (!active && pressed && Greenfoot.isKeyDown("a"))
-        {
-                     
+        { 
         }
         // (4) Botão ativo e o usuário solta a tecla antes da expiração
         else if (active && pressed && !Greenfoot.isKeyDown("a"))
@@ -63,7 +57,8 @@ public class BotaoVerde extends Actor
          // (5) Botão expirado e o usuário solta a tecla 
         else if (!active && pressed && !Greenfoot.isKeyDown("a"))
         {
-            pressed = false;         
+            pressed = false;
+            this.setImage(looseImage);         
         }    
     } 
     
