@@ -81,8 +81,10 @@ public class MyWorld extends greenfoot.World
                 
         // Create the menu
         botaoMenu = new BotaoMenu();   
-        addObject(botaoMenu, getWidth()/2, getHeight()/2);     
         
+        addObject(new MenuFundo(), getWidth()/2, (getHeight()/2)-5);
+        addObject(botaoMenu, getWidth()/2, (getHeight()/2)+50);
+      
         // Set the game state
         state = GameState.MENU;
     }
