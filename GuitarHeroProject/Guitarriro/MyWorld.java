@@ -33,6 +33,12 @@ public class MyWorld extends greenfoot.World
     private BotaoVermelho botaoVermelho;
     private BotaoAzul botaoAzul;
     private BotaoMenu botaoMenu;
+    private FinalScore finalScore;
+    private GameOver gameOver;
+    
+    private Good good;
+    private VeryGood veryGood;
+    private Great great;
     
     GreenfootSound musica = new GreenfootSound("bytheway.mp3");
     
@@ -66,11 +72,11 @@ public class MyWorld extends greenfoot.World
                 //musica.stop();
                 break;
             }            
-            //case GAMEOVER:
-            //{
-                //actGameOver();
-                //break;
-            //}
+            case GAMEOVER:
+            {
+                actGameOver();
+                break;
+            }
         }
     }
     
@@ -117,14 +123,25 @@ public class MyWorld extends greenfoot.World
         removeObjects(getObjects(Actor.class)); 
       
         // Add gameover screen
-        //gameOver = new GameOver();
-        //addObject(gameOver,getWidth()/2,getHeight()/2);
+        gameOver = new GameOver();
+        addObject(gameOver,getWidth()/2,getHeight()/2);
         
-        // Add the final score
-        //int finalscore = score.getScore();
-        //finalScore = new FinalScore(fscore);
-        //addObject(finalScore,getWidth()-75,60);
-                                
+        //Add the final score
+        int fscore = score.getScore();
+        finalScore = new FinalScore(fscore);
+        addObject(finalScore,getWidth()-75,60);
+        good = new Good();
+        veryGood = new VeryGood();
+        great = new Great();
+        
+        if(fscore <= 5000){
+            addObject(good, getWidth()/2 ,getHeight()/2);
+        }else if(fscore > 5000 || fscore < 7000){
+            addObject(veryGood, getWidth()/2 ,getHeight()/2);
+        }else if(fscore >= 7000){
+            addObject(great, getWidth()/2 ,getHeight()/2);        
+        }
+        
         // Set the game state
         state = GameState.GAMEOVER;           
     }
@@ -176,11 +193,11 @@ public class MyWorld extends greenfoot.World
     
     public void actGameOver()
     {
-        //if(Greenfoot.mouseClicked(gameOver) ||
-          // Greenfoot.mouseClicked(finalScore))
-        //{
-          //  prepareMenu();
-        //}
+        if(Greenfoot.mouseClicked(gameOver) ||
+           Greenfoot.mouseClicked(finalScore))
+        {
+            prepareMenu();
+        }
     }
 
     public void noteRight(){
