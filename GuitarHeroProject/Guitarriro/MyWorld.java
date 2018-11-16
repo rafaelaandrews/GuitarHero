@@ -138,9 +138,9 @@ public class MyWorld extends greenfoot.World
         
         if(fscore <= 5000){
             addObject(good, getWidth()/2, getHeight()/2);
-        }else if(fscore > 5000 || fscore < 7000){
+        }else if(fscore > 5000 && fscore < 7000){
             addObject(veryGood, getWidth()/2, getHeight()/2);
-        }else if(fscore > 7000 || fscore < 10000){
+        }else if(fscore > 7000 && fscore < 10000){
             addObject(great, getWidth()/2, getHeight()/2);        
         }else if(fscore >= 10000){
             addObject(nice, getWidth()/2, getHeight()/2);
