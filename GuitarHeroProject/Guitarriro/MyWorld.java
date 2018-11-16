@@ -130,7 +130,7 @@ public class MyWorld extends greenfoot.World
         //Add the final score
         int fscore = score.getScore();
         finalScore = new FinalScore(fscore);
-        addObject(finalScore,getWidth()/2, getHeight()/2+60);
+        addObject(finalScore,getWidth()/2, getHeight()/2+90);
         good = new Good();
         veryGood = new VeryGood();
         great = new Great();

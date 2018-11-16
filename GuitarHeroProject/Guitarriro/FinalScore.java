@@ -7,7 +7,7 @@ public class FinalScore extends Actor
         GreenfootImage image = new GreenfootImage(String.valueOf(finalScore),          
                                                   50,
                                                   new Color(0,0,0,200),
-                                                  new Color(255,255,255,0));                                          
+                                                  new Color(255,255,255,200));                                          
                                                   
         setImage(image);  
     }
