@@ -39,6 +39,7 @@ public class BotaoVermelho extends Actor
 	            if (notaVermelha!=null){
                     MyWorld world = (MyWorld)getWorld();
                     world.noteRight();
+                    world.addObject(new Certo(),notaVermelha.getX(),370);
 	                getWorld().removeObject(notaVermelha);
 	            }
             }    

@@ -39,7 +39,9 @@ public class BotaoAzul extends Actor
 	            if (notaAzul!=null){
                     MyWorld world = (MyWorld)getWorld();
                     world.noteRight();
-	                getWorld().removeObject(notaAzul);
+                    world.addObject(new Certo(),notaAzul.getX(),370);
+	            getWorld().removeObject(notaAzul);
+	            
 	            }
             }    
         }
