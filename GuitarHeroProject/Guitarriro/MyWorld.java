@@ -130,18 +130,18 @@ public class MyWorld extends greenfoot.World
         //Add the final score
         int fscore = score.getScore();
         finalScore = new FinalScore(fscore);
-        addObject(finalScore,getWidth()-75,60);
+        addObject(finalScore,getWidth()/2, getHeight()/2+60);
         good = new Good();
         veryGood = new VeryGood();
         great = new Great();
         nice = new Nice();
         
         if(fscore <= 5000){
-            addObject(good, getWidth()/2 ,getHeight()/2);
+            addObject(good, getWidth()/2, getHeight()/2);
         }else if(fscore > 5000 || fscore < 7000){
-            addObject(veryGood, getWidth()/2 ,getHeight()/2);
+            addObject(veryGood, getWidth()/2, getHeight()/2);
         }else if(fscore > 7000 || fscore < 10000){
-            addObject(great, getWidth()/2 ,getHeight()/2);        
+            addObject(great, getWidth()/2, getHeight()/2);        
         }else if(fscore >= 10000){
             addObject(nice, getWidth()/2, getHeight()/2);
         }
