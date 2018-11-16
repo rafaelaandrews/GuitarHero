@@ -39,6 +39,7 @@ public class MyWorld extends greenfoot.World
     private Good good;
     private VeryGood veryGood;
     private Great great;
+    private Nice nice;
     
     GreenfootSound musica = new GreenfootSound("bytheway.mp3");
     
@@ -133,13 +134,16 @@ public class MyWorld extends greenfoot.World
         good = new Good();
         veryGood = new VeryGood();
         great = new Great();
+        nice = new Nice();
         
         if(fscore <= 5000){
             addObject(good, getWidth()/2 ,getHeight()/2);
         }else if(fscore > 5000 || fscore < 7000){
             addObject(veryGood, getWidth()/2 ,getHeight()/2);
-        }else if(fscore >= 7000){
+        }else if(fscore > 7000 || fscore < 10000){
             addObject(great, getWidth()/2 ,getHeight()/2);        
+        }else if(fscore >= 10000){
+            addObject(nice, getWidth()/2, getHeight()/2);
         }
         
         // Set the game state
