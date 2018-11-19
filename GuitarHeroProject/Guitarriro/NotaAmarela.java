@@ -14,8 +14,8 @@ public class NotaAmarela extends Actor
      */
     public void act() 
     {
-          setLocation(getX(),getY()+1);
-          if(this.getY() == 385){
+          setLocation(getX(),getY()+2);
+          if(this.getY() == 386){
               MyWorld world = (MyWorld)getWorld();
               world.noteWrong();
               getWorld().removeObject(this);
