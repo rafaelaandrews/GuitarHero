@@ -23,7 +23,7 @@ public class MyWorld extends greenfoot.World
     private int noteSpawnLimit = 5;
     
     private Score score;
-    //private Guitarra guitarra;
+    private FundoGuitarra guitarra;
     private NotaVerde notaVerde;
     private NotaAmarela notaAmarela;
     private NotaVermelha notaVermelha;
@@ -101,19 +101,19 @@ public class MyWorld extends greenfoot.World
         // Clear the world
         removeObjects(getObjects(Actor.class));
         
-        // Create the menu
-        //guitarra = new Guitarra();
-        //addObject(guitarra,getWidth()/2,getHeight()/2);
+        // Create the game
+        guitarra = new FundoGuitarra();
+        addObject(guitarra,getWidth()/2,getHeight()/2);
         score = new Score();
         botaoVerde = new BotaoVerde();
         botaoAmarelo = new BotaoAmarelo();
         botaoVermelho = new BotaoVermelho();
         botaoAzul = new BotaoAzul();
-        addObject(score, 57, 15);
-        addObject(botaoVerde, 200, 380);
-        addObject(botaoAmarelo, 250, 380);
-        addObject(botaoVermelho, 300, 380);
-        addObject(botaoAzul, 350, 380);
+        addObject(score, 80, 15);
+        addObject(botaoVerde, 225, 380);
+        addObject(botaoAmarelo, 275, 380);
+        addObject(botaoVermelho, 325, 380);
+        addObject(botaoAzul, 375, 380);
         // Set the game state
         state = GameState.PLAYING;
     }
@@ -161,16 +161,16 @@ public class MyWorld extends greenfoot.World
             if (noteSpawnCount == 0){
                 if(aleatorio2 < noteSpawnRatio){
                     if(aleatorio == 0){
-                        addObject(notaVerde, 200, 10);
+                        addObject(notaVerde, 225, 10);
                     }
                     else if(aleatorio == 1){
-                        addObject(notaAmarela, 250, 10);
+                        addObject(notaAmarela, 275, 10);
                     }
                     else if(aleatorio == 2){
-                        addObject(notaVermelha, 300, 10);
+                        addObject(notaVermelha, 325, 10);
                     }
                     else if(aleatorio == 3){
-                        addObject(notaAzul, 350, 10);
+                        addObject(notaAzul, 375, 10);
                     }
                     
                 }

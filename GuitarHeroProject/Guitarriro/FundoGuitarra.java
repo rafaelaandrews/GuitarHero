@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Guitarra here.
+ * Write a description of class fundo_guitarra here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Guitarra extends Actor
+public class FundoGuitarra extends Actor
 {
     /**
-     * Act - do whatever the Guitarra wants to do. This method is called whenever
+     * Act - do whatever the fundo_guitarra wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
