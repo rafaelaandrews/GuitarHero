@@ -16,7 +16,7 @@ public class MyWorld extends greenfoot.World
     //5% de chance
     private int noteSpawnRatio = 10;
     
-    private int timer = 12960;
+    private int timer = 0;
     
     //limite e quantidade
     private int noteSpawnCount = 0;
@@ -115,6 +115,7 @@ public class MyWorld extends greenfoot.World
         addObject(botaoVermelho, 325, 380);
         addObject(botaoAzul, 375, 380);
         // Set the game state
+        timer = 12960;
         state = GameState.PLAYING;
     }
     
